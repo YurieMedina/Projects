@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wishbone: a sailor's supply of keepsakes, made for the long way home.">
+    <title>SAILOR'S SUPPLY CO. | WISHBONE SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="announcement">THE TIDE IS IN &nbsp;•&nbsp; FREE SHIPPING ON ORDERS OVER ₱2,000</div>
+    <header>
+        <a class="logo" href="#top">SAILOR'S <span>SUPPLY CO.</span></a>
+        <nav aria-label="Main navigation">
+            <div class="nav-item"><a href="#products">Shop <span class="chevron">⌄</span></a><div class="nav-menu"><a href="#products" data-view="featured">Featured products</a><a href="#all-products" data-view="all">All products</a></div></div>
+            <div class="nav-item"><a href="#categories">Collections <span class="chevron">⌄</span></a><div class="nav-menu"><a href="#category-clothing" data-category-link="clothing">Clothing</a><a href="#category-jewelry" data-category-link="jewelry">Jewelry</a><a href="#category-objects" data-category-link="objects">Objects</a><a href="#category-gifts" data-category-link="gifts">Gifts</a></div></div>
+            <a href="#songs" data-view="songs">Songs</a>
+            <div class="nav-item"><a href="#about">Our story</a></div>
+        </nav>
+        <div class="header-actions"><button class="utility search-trigger" type="button" aria-label="Open product search">Search</button><button class="utility bag-trigger" type="button" aria-label="Open shopping bag">Bag <span class="cart-count">0</span></button></div>
+    </header>
+
+    <main id="top" class="home-main">
+        <section class="hero">
+            <div class="hero-copy">
+                <div class="eyebrow">Sailor's supply / Vol. 01</div>
+                <h1>WISH<span>BONE</span></h1>
+                <p>&ldquo;Wish Bones and clover.<br>Buy some merch for this kind of weather.&rdquo;</p>
+                <a href="#products" class="button">Shop the collection &rarr;</a>
+            </div>
+            <div class="hero-art" role="img" aria-label="Open ocean beneath a bright sky">
+                <div class="stamp"><span class="random-banner-line">MADE FOR<br>THE LONG WAY HOME</span></div>
+            </div>
+        </section>
+
+        <section id="products">
+            <div class="section-heading"><h2>Featured products</h2><p>Small-run goods for big feelings</p></div>
+            <div class="products">
+                <article class="product-card" data-product="Wishbone Hoodie" data-price="1499" data-category="clothing">
+                    <img src="images/wishbone hoodie.webp" alt="Wishbone hoodie">
+                    <div class="product-info"><div class="tag">01 / wishbone / navy issue</div><h3>Wishbone Hoodie</h3><div class="price-row"><span class="price">₱1,499</span><button class="product-btn" type="button">Add to bag +</button></div></div>
+                </article>
+                <article class="product-card" data-product="Wishbone Necklace" data-price="2299" data-category="jewelry">
+                    <img src="images/wishbone-necklace.webp" alt="Silver wishbone necklace">
+                    <div class="product-info"><div class="tag">02 / wishbone / keepsake</div><h3>Wishbone Necklace</h3><div class="price-row"><span class="price">₱2,299</span><button class="product-btn" type="button">Add to bag +</button></div></div>
+                </article>
+                <article class="product-card" data-product="Wishbone Deluxe Vinyl" data-price="2999" data-category="objects">
+                    <img src="images/wishbone deluxe vinyl.jpg" alt="Wishbone deluxe vinyl record">
+                    <div class="product-info"><div class="tag">03 / wishbone / deluxe edition</div><h3>Wishbone Deluxe Vinyl</h3><div class="price-row"><span class="price">₱2,999</span><button class="product-btn" type="button">Add to bag +</button></div></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-section" id="categories">
+            <div class="section-heading"><h2>Find your way</h2><p>Browse by kind</p></div>
+            <div class="categories">
+                <a href="#category-clothing" class="category" data-category-link="clothing"><div class="icon">✳</div><h3>Clothing</h3><small>→</small></a>
+                <a href="#category-jewelry" class="category" data-category-link="jewelry"><div class="icon">⌁</div><h3>Jewelry</h3><small>→</small></a>
+                <a href="#category-objects" class="category" data-category-link="objects"><div class="icon">◌</div><h3>Objects</h3><small>→</small></a>
+                <a href="#category-gifts" class="category" data-category-link="gifts"><div class="icon">✦</div><h3>Gifts</h3><small>→</small></a>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div><h2>Keep in touch<br>with the tide.</h2><p>New drops, old stories, no noise.</p></div>
+            <form class="signup"><input type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email address" required><button type="submit">SIGN ME UP &rarr;</button></form>
+        </section>
+    </main>
+
+    <main class="catalog-page" id="catalog-page" hidden>
+        <section class="catalog-shell" id="catalog-products">
+            <a class="back-link" href="#products" data-view="featured">&larr; Back to home</a>
+            <div class="section-heading catalog-heading"><h1>All products</h1><p>Everything currently aboard</p></div>
+            <div class="products catalog-grid"></div>
+        </section>
+    </main>
+
+    <main class="music-page" id="music-page" hidden>
+        <section class="song-showcase">
+            <a class="back-link" href="#products" data-view="featured">&larr; Back to home</a>
+            <div class="section-heading"><h1>On the turntable</h1><p>A Conan Gray songbook</p></div>
+            <div class="music-player"><button class="music-toggle" type="button" aria-pressed="false"><span class="music-icon">▶</span> Play original preview</button><span class="music-status">Choose a song to begin</span></div>
+            <div class="song-list" id="song-list"></div>
+        </section>
+    </main>
+
+    <footer id="about">
+        <div class="footer-content">
+            <div><div class="footer-brand">SAILOR'S SUPPLY CO.</div><p>Wishbone keepsakes for<br>the long way home.</p></div>
+            <div><h3>Shop</h3><a href="#products">Featured</a><a href="#categories">Collections</a><a href="#products">Best sellers</a></div>
+            <div><h3>Help</h3><a href="#about">About us</a><a href="mailto:hello@wishbone.shop">Contact</a><a href="#about">Shipping & returns</a></div>
+            <div><h3>Follow along</h3><a href="#about">Instagram</a><a href="#about">TikTok</a><a href="#about">Pinterest</a></div>
+        </div>
+        <div class="copyright">© 2026 WISHBONE SHOP &nbsp; / &nbsp; MADE WITH INTENTION</div>
+    </footer>
+
+    <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true">
+        <div class="bag-header"><div><span class="eyebrow">Your selection</span><h2>Shopping bag</h2></div><button class="close-bag" type="button" aria-label="Close shopping bag">×</button></div>
+        <div class="bag-items"><p class="empty-bag">Your bag is waiting for something good.</p></div>
+        <div class="bag-footer"><div class="subtotal"><span>Subtotal</span><strong>₱0</strong></div><button class="checkout button" type="button" disabled>Checkout <span>→</span></button><small>Taxes and shipping calculated at checkout.</small></div>
+    </aside>
+    <div class="bag-scrim"></div>
+    <div class="search-panel" aria-hidden="true"><form class="search-form"><input type="search" placeholder="SEARCH THE SHIP'S HOLD" aria-label="Search products"><button type="submit">Search</button><button class="close-search" type="button" aria-label="Close search">×</button></form><div class="search-results"></div></div>
+    
+    <aside class="product-showcase" aria-hidden="true">
+        <button class="close-showcase" type="button" aria-label="Close product details">×</button>
+        <div class="showcase-content">
+            <div class="showcase-image">
+                <img id="showcase-img" src="" alt="">
+            </div>
+            <div class="showcase-details">
+                <div class="tag" id="showcase-tag"></div>
+                <h2 id="showcase-title"></h2>
+                <div class="showcase-price" id="showcase-price"></div>
+                
+                <div class="showcase-options">
+                    <div class="option-group">
+                        <label>Size</label>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="XS">XS</button>
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label>Color</label>
+                        <div class="color-options">
+                            <button class="color-btn" data-color="navy" style="background-color: #102a3b;" title="Navy">Navy</button>
+                            <button class="color-btn" data-color="white" style="background-color: #f4eee2;" title="White">White</button>
+                            <button class="color-btn" data-color="red" style="background-color: #a4483d;" title="Red">Red</button>
+                            <button class="color-btn" data-color="brass" style="background-color: #c39a55;" title="Brass">Brass</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label>Quantity</label>
+                        <div class="quantity-selector">
+                            <button class="qty-btn" id="qty-decrease" type="button">−</button>
+                            <input type="number" id="showcase-qty" min="1" max="99" value="1" readonly>
+                            <button class="qty-btn" id="qty-increase" type="button">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="button" id="showcase-add-to-bag" type="button">Add to bag →</button>
+            </div>
+        </div>
+    </aside>
+    <div class="showcase-scrim"></div>
+    
+    <main class="checkout-page" id="checkout-page" hidden>
+        <div class="checkout-container">
+            <button class="back-checkout" type="button" aria-label="Back to bag">&larr; Back</button>
+            <div class="checkout-grid">
+                <div class="checkout-col">
+                    <div class="checkout-section">
+                        <h2>Order Summary</h2>
+                        <div id="checkout-items" class="checkout-items"></div>
+                        <div class="checkout-totals">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal">₱0</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping</span>
+                                <span id="checkout-shipping">₱50</span>
+                            </div>
+                            <div class="total-row total-final">
+                                <span>Total</span>
+                                <strong id="checkout-total">₱0</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checkout-col">
+                    <div class="checkout-section">
+                        <h3>Delivery Address</h3>
+                        <div class="form-group">
+                            <label for="full-name">Full Name *</label>
+                            <input type="text" id="full-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address *</label>
+                            <textarea id="address" placeholder="Street address, barangay, city" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-section">
+                        <h3>Payment Method</h3>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card" checked>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="gcash">
+                                <span>GCash</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="bank">
+                                <span>Bank Transfer</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cod">
+                                <span>Cash on Delivery</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="button" id="complete-checkout" type="button" style="width: 100%; margin-top: 20px;">Complete Order →</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <main class="orders-page" id="orders-page" hidden>
+        <div class="orders-container">
+            <a class="back-link" href="#products" data-view="featured">&larr; Back to shop</a>
+            <h1>Your Orders</h1>
+            <div id="orders-list" class="orders-list"></div>
+        </div>
+    </main>
+    
+    <div id="receipt-print-area" style="display: none;"></div>
+</body>
+</html>
