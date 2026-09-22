@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPU Scheduler Report</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff;
+            color: #1d232b;
+            padding: 32px;
+        }
+        .report {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 2px solid #dfe7f1;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        h1 { margin: 0; font-size: 30px; }
+        .badge {
+            background: #eaf4ff;
+            color: #234d8b;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .meta {
+            margin-bottom: 20px;
+            color: #495566;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #d6dde6;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        th {
+            background: #f1f5fa;
+        }
+        .schedule-box {
+            border: 1px solid #d6dde6;
+            border-radius: 8px;
+            padding: 16px;
+            background: #fafcff;
+            line-height: 1.8;
+            margin-top: 18px;
+        }
+        .no-data {
+            color: #6b7280;
+            font-style: italic;
+        }
+        @media print {
+            body { padding: 0; }
+            .report { max-width: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="report">
+        <div class="header">
+            <h1>CPU Scheduling Report</h1>
+            <span id="algorithmBadge" class="badge">-</span>
+        </div>
+
+        <div id="reportMeta" class="meta"></div>
+
+        <div>
+            <h2>Execution Schedule</h2>
+            <div id="printSchedule" class="schedule-box"></div>
+        </div>
+
+        <div>
+            <h2>Process Metrics</h2>
+            <div id="printTable"></div>
+        </div>
+    </div>
+
+    <script>
+        const report = JSON.parse(localStorage.getItem('schedulerReport') || '{}');
+        const badge = document.getElementById('algorithmBadge');
+        const meta = document.getElementById('reportMeta');
+        const scheduleBox = document.getElementById('printSchedule');
+        const tableBox = document.getElementById('printTable');
+
+        if (!report.algorithm) {
+            badge.textContent = 'No Report';
+            meta.innerHTML = '<p class="no-data">No scheduling data has been generated yet.</p>';
+            scheduleBox.innerHTML = '<p class="no-data">Generate a schedule from the app first.</p>';
+            tableBox.innerHTML = '';
+        } else {
+            const algorithmLabel = report.algorithm === 'PREEMPTIVE' ? 'Priority (Preemptive)' : report.algorithm === 'NONPREEMPTIVE' ? 'Priority (Non-Preemptive)' : report.algorithm;
+            badge.textContent = algorithmLabel;
+            meta.innerHTML = '<p><strong>Generated:</strong> ' + (report.generatedAt || 'N/A') + '</p>';
+
+            const scheduleText = Array.isArray(report.schedule) && report.schedule.length
+                ? report.schedule.map(segment => `${segment.id} (${segment.start}-${segment.end})`).join(' → ')
+                : 'No schedule available';
+            scheduleBox.textContent = scheduleText;
+
+            const metrics = Array.isArray(report.metrics) ? report.metrics : [];
+            const averageTurnaround = metrics.reduce((sum, process) => sum + process.turnaround, 0) / metrics.length;
+            const averageWaiting = metrics.reduce((sum, process) => sum + process.waiting, 0) / metrics.length;
+            const rows = metrics.map(process => `
+                <tr>
+                    <td>${process.id}</td>
+                    <td>${process.arrival}</td>
+                    <td>${process.burst}</td>
+                    <td>${process.completion}</td>
+                    <td>${process.turnaround}</td>
+                    <td>${process.waiting}</td>
+                </tr>
+            `).join('') + (metrics.length ? `
+                <tr>
+                    <td colspan="4"><strong>Average</strong></td>
+                    <td><strong>${averageTurnaround.toFixed(2)}</strong></td>
+                    <td><strong>${averageWaiting.toFixed(2)}</strong></td>
+                </tr>
+            ` : '');
+
+            tableBox.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Job</th>
+                            <th>Arrival Time</th>
+                            <th>Burst Time</th>
+                            <th>Finish Time</th>
+                            <th>Turnaround Time</th>
+                            <th>Waiting Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+
+            window.addEventListener('load', () => window.print());
+        }
+    </script>
+</body>
+</html>
