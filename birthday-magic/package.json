@@ -1,0 +1,30 @@
+{
+  "name": "birthday-magic",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A birthday greeting app",
+  "main": "electron-main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.birthday.magic",
+    "productName": "Birthday Magic",
+    "files": [
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "images/**/*",
+      "music/**/*",
+      "electron-main.cjs"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  }
+}

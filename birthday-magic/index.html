@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, My Favorite Person!</title>
+    <link rel="stylesheet" href="css/styles.css?v=20260909c" />
+</head>
+<body>
+    <div id="midnight-lock" class="midnight-lock" role="dialog" aria-modal="true" aria-labelledby="midnight-lock-title">
+        <div class="midnight-lock-card">
+            <img class="midnight-shark midnight-shark-left" src="images/sharks/shark-happy.jpg" alt="Happy shark sticker" />
+            <img class="midnight-shark midnight-shark-right" src="images/sharks/shark-tongue.jpg" alt="Playful shark sticker" />
+            <div class="midnight-lock-icon" aria-hidden="true">🌙</div>
+            <h1 id="midnight-lock-title">A little something is coming</h1>
+            <p>The website will open at midnight.</p>
+            <div id="midnight-countdown" class="midnight-countdown" aria-live="polite">00:00:00</div>
+            <div class="midnight-shark-row" aria-hidden="true">
+                <img src="images/sharks/shark-sleepy.jpg" alt="" />
+                <img src="images/sharks/shark-crying.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+    <div class="background">
+        <div class="side-decor side-left" aria-hidden="true">
+            <span class="cloud cloud-a"></span>
+            <span class="cloud cloud-b"></span>
+            <span class="sparkle sparkle-star">✦</span>
+            <span class="sparkle sparkle-heart">♥</span>
+            <span class="sparkle sparkle-bubble">•</span>
+        </div>
+        <div class="side-decor side-right" aria-hidden="true">
+            <span class="cloud cloud-a"></span>
+            <span class="cloud cloud-b"></span>
+            <span class="sparkle sparkle-star">✦</span>
+            <span class="sparkle sparkle-heart">♥</span>
+            <span class="sparkle sparkle-bubble">•</span>
+        </div>
+        <div class="music-player-stack">
+            <div class="music-speech-bubble">Listen to this while checking out the website</div>
+            <aside class="floating-music-player" id="vinyl-player" aria-live="polite">
+            <div class="music-cover-wrap">
+                <img class="music-cover" src="images/Music%20Player%20Picture/blessed.jpg" alt="Blessed music cover" />
+            </div>
+            <div class="music-controls">
+                <div class="music-player-nav" aria-label="Music navigation">
+                    <button id="music-previous" class="music-nav-button" type="button" aria-label="Previous song">|◀</button>
+                    <button id="music-toggle" class="mini-player-button" type="button" aria-label="Play birthday music">
+                        <span class="toggle-label">▶</span>
+                    </button>
+                    <button id="music-next" class="music-nav-button" type="button" aria-label="Next song">▶|</button>
+                </div>
+                <div class="track-meta">
+                    <select id="music-select" class="music-select" aria-label="Choose a song"></select>
+                    <span class="track-name">Birthday Mix</span>
+                    <input id="music-seekbar" class="seekbar" type="range" min="0" max="0" step="0.1" value="0" aria-label="Seek through song" />
+                    <div id="music-time-row" class="time-row" title="Click to seek through the song">
+                        <span id="music-current-time">0:00</span>
+                        <span id="music-duration">0:00</span>
+                    </div>
+                </div>
+            </div>
+            </aside>
+        </div>
+        <audio id="birthday-audio" src="music/Blessed.mp3" preload="metadata"></audio>
+        <main>
+            <section id="welcome-card" class="card">
+                <div class="birthday-badge">A LITTLE BIRTHDAY MAGIC</div>
+                <div class="flowers">
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="Blue forget-me-not flower" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                </div>
+                <h1>Happy Birthday!</h1>
+                <div class="party-line" aria-hidden="true">🎈 ✦ 🎂 ✦ 🎈</div>
+                <p class="subtitle">To my wonderfully cute, unforgettable someone 💙</p>
+                <div class="scene">
+                    <img class="shark" src="images/sharks/images.jpg" alt="Shark holding hearts" />
+                </div>
+                <div class="flowers">
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="Blue forget-me-not flower" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                    <img src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                </div>
+                <button onclick="showMessage()">Open your birthday greeting 💌</button>
+                <button class="secret" onclick="showSurprise()">A tiny surprise 🦈</button>
+                <button class="friends-button" onclick="showFriends()">From Friends 🎉</button>
+                <footer>Made with ocean waves, forget-me-not flowers, and lots of love 🌊</footer>
+            </section>
+            <section id="greeting-page" class="card greeting-page hidden">
+                <img class="flower-corner flower-corner-left" src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                <img class="flower-corner flower-corner-right" src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                <div class="birthday-badge">A BIRTHDAY NOTE JUST FOR YOU</div>
+                <div class="greeting-topper" aria-hidden="true">💙 ✦ 🎂 ✦ 💙</div>
+                <h2>For someone wonderfully unforgettable</h2>
+                <p class="greeting-message">You Brighten up my day Same way the sun Does. You are the reason my skies are blue. My life became Full of color and life because of this cute little Shark (AKA YOU). I'm lucky to meet someone as kind, as pretty, and caring as you. I hope you know that</p>
+                <div class="shark-gallery">
+                    <img src="images/sharks/shark-happy.jpg" alt="Happy shark" />
+                    <img src="images/sharks/shark-tongue.jpg" alt="Playful shark" />
+                    <img src="images/sharks/shark-sleepy.jpg" alt="Sleepy shark" />
+                    <img src="images/sharks/shark-crying.jpg" alt="Sweet crying shark" />
+                </div>
+                <p class="final-line">Happy birthday to my favorite person! 💙</p>
+                <button class="back-button" onclick="showWelcome()">Back to the card ↩</button>
+            </section>
+            <section id="surprise-page" class="card surprise-page hidden">
+                <img class="flower-corner flower-corner-left" src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                <img class="flower-corner flower-corner-right" src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                <div class="birthday-badge">A TINY SURPRISE FOR YOU</div>
+                <h2>Little moments I love</h2>
+                <p class="surprise-copy">A few sweet pictures for the best friend, girlfriend, and companion I could ever ask for.</p>
+                <div class="slideshow">
+                    <button class="slide-arrow" onclick="previousSurprise()" aria-label="Previous surprise">&#8592;</button>
+                    <div class="slide-frame">
+                        <img id="surprise-image" src="images/tiny-surprise/Her%20alone.jpg" alt="Tiny surprise memory" />
+                        <p id="surprise-empty" class="surprise-empty hidden">Add pictures to the tiny-surprise folder to fill this little gallery.</p>
+                    </div>
+                    <button class="slide-arrow" onclick="nextSurprise()" aria-label="Next surprise">&#8594;</button>
+                </div>
+                <p id="slide-counter" class="slide-counter">1 / 4</p>
+                <p class="final-line">Thank you for coming into my life and for being my best friend, girlfriend, and companion. I love sharing life with you. 💙</p>
+                <button class="back-button" onclick="showWelcome()">Back to the card ↩</button>
+            </section>
+            <section id="friends-page" class="card friends-page hidden">
+                <img class="flower-corner flower-corner-left" src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                <img class="flower-corner flower-corner-right" src="images/forget-me-not-flowers/forget-me-not-transparent.png" alt="" aria-hidden="true" />
+                <div class="birthday-badge">A FRIENDS SPECIAL PAGE</div>
+                <div class="greeting-topper" aria-hidden="true">✨ ✦ 🎉 ✦ ✨</div>
+                <h2>For all the friends who make life extra colorful</h2>
+                <p class="greeting-message">From The friends we met throughout this journey. To Whom we've shared laughter, sadness, and many experiences together we'd like to greet you Happy Birthday ! Athea We Hope this Year Gives you the best opportunity and everything you want !</p>
+
+                <div class="friend-badges">
+                    <span>Acethi</span>
+                    <span>Happy Pill</span>
+                    <span>Besties</span>
+                    <span>Caring Friend</span>
+                </div>
+
+                <div class="friend-gallery-group">
+                    <div class="friend-gallery-section">
+                        <h3>Jenina</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Jenina/2be2f3b5-5450-43a5-a4b0-fba6c2d35809.jpg" alt="Jenina memory 1" />
+                            <img src="images/friends/Jenina/683b718f-d6fa-46e5-9531-9fe8a597dc22.jpg" alt="Jenina memory 2" />
+                            <img src="images/friends/Jenina/a72c662c-bf12-4e96-8372-6df8e0569e7b.jpg" alt="Jenina memory 3" />
+                            <img src="images/friends/Jenina/b43bf982-b46d-4a84-9cdb-bf94f3ba98d0.jpg" alt="Jenina memory 4" />
+                            <img src="images/friends/Jenina/d0a1b533-1552-4c56-a10e-1f468a6f55ee.jpg" alt="Jenina memory 5" />
+                            <img src="images/friends/Jenina/f99c077c-9d6e-485c-ae64-b5cd7b0424e0.jpg" alt="Jenina memory 6" />
+                            <img src="images/friends/Jenina/400a7dfb-0809-4cfd-8fe7-0a7fa79ef24c.jpg" alt="Jenina memory 7" />
+                            <img src="images/friends/Jenina/7be8365d-ee39-4da5-af83-9a86ec0b3508.jpg" alt="Jenina memory 8" />
+                            <img src="images/friends/Jenina/801456697_2585761155197256_1130405123860874744_n.png" alt="Jenina memory 9" />
+                            <img src="images/friends/Jenina/456996985_1098816101664790_5018204098698983841_n.jpg" alt="Jenina memory 10" />
+                            <img src="images/friends/Jenina/457494662_1289822692359735_1157943889164507702_n.jpg" alt="Jenina memory 11" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Jireh</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Jireh/2037e8cf-334e-494e-b8de-30cdde761ce3.jpg" alt="Jireh memory 1" />
+                            <img src="images/friends/Jireh/2a402534-fb34-40a7-a5d2-ab22be1799ed.jpg" alt="Jireh memory 2" />
+                            <img src="images/friends/Jireh/95e3a15c-9714-4391-ad50-25c9d0cb97b5.jpg" alt="Jireh memory 3" />
+                            <img src="images/friends/Jireh/99670095-564a-4ac1-a6e9-7439df4495cd.jpg" alt="Jireh memory 4" />
+                            <img src="images/friends/Jireh/457335421_856299956190505_4834807689745360076_n.jpg" alt="Jireh memory 5" />
+                            <img src="images/friends/Jireh/457456213_2326405817699076_6354295311080450261_n.jpg" alt="Jireh memory 6" />
+                            <img src="images/friends/Jireh/457466834_1000609721748941_7864041902089351667_n.jpg" alt="Jireh memory 7" />
+                            <img src="images/friends/Jireh/458392744_1240807720252919_6878899278787695719_n.jpg" alt="Jireh memory 8" />
+                            <img src="images/friends/Jireh/458402267_858373962925013_6508145689527736451_n.jpg" alt="Jireh memory 9" />
+                            <img src="images/friends/Jireh/458727756_861427462750996_1168246444902770324_n.jpg" alt="Jireh memory 10" />
+                            <img src="images/friends/Jireh/458739247_384687358027457_5538093338458735536_n.jpg" alt="Jireh memory 11" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Jade</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Jade/07a904a0-75b0-4a3e-b219-633f9a7ecaac.jpg" alt="Jade memory 1" />
+                            <img src="images/friends/Jade/12f441d3-2a0b-4e73-89c1-dc8631ed33ea.jpg" alt="Jade memory 2" />
+                            <img src="images/friends/Jade/615bfd32-f86a-4bc1-9834-015d6a019a18.jpg" alt="Jade memory 3" />
+                            <img src="images/friends/Jade/758167214_1121797663946520_1493992284375813609_n.jpg" alt="Jade memory 4" />
+                            <img src="images/friends/Jade/b4434b8b-0ecf-4875-a9a6-b7ab194e7e19.jpg" alt="Jade memory 5" />
+                            <img src="images/friends/Jade/c02660ac-7f81-413e-aa96-e73dca719fcd.jpg" alt="Jade memory 6" />
+                            <img src="images/friends/Jade/e9d19278-5f73-4f41-a85b-f94ca9f66fa9.jpg" alt="Jade memory 7" />
+                            <img src="images/friends/Jade/348ae164-999f-4b28-955b-06b75d1bd77b.jpg" alt="Jade memory 8" />
+                            <img src="images/friends/Jade/f8a0585d-8c26-40c4-af6a-d1a69af68caa.jpg" alt="Jade memory 9" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>4puff</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/4puff/5136c206-da0a-4143-a21b-b658c98f90e4.jpg" alt="4puff memory 1" />
+                            <img src="images/friends/4puff/7a4d56bd-faa6-4847-9cf2-332e1e4cc4de.jpg" alt="4puff memory 2" />
+                            <img src="images/friends/4puff/c4868ee3-b633-42a4-b44e-84b3d9efb7bb.jpg" alt="4puff memory 3" />
+                            <img src="images/friends/4puff/f71b235c-c437-4af3-9d33-bd576fef07cd.jpg" alt="4puff memory 4" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Anthro</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Anthro/38478398-e7c2-410e-81a1-8df020c62d74.jpg" alt="Anthro memory 1" />
+                            <img src="images/friends/Anthro/42a9fdfb-6da2-421a-ab39-f8bc9977bf0b.jpg" alt="Anthro memory 2" />
+                            <img src="images/friends/Anthro/7a0648f8-77ce-4f54-abed-bf87eccc6cfb.jpg" alt="Anthro memory 3" />
+                            <img src="images/friends/Anthro/cdc8ea30-1f6d-4402-a03a-4a832972b0ee.jpg" alt="Anthro memory 4" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Dani</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Dani/5a48a523-a706-45c3-b31a-5f3dde28f123.jpg" alt="Dani memory 1" />
+                            <img src="images/friends/Dani/ace40e13-b9ca-4a74-bdd4-1cbd94381400.jpg" alt="Dani memory 2" />
+                            <img src="images/friends/Dani/b1616316-a6a4-4ca4-bf0b-64c2f25f7b54.jpg" alt="Dani memory 3" />
+                            <img src="images/friends/Dani/fd9bb809-a600-41a9-b7dd-04950a4c2d6c.jpg" alt="Dani memory 4" />
+                            <img src="images/friends/Dani/fe4a418d-8985-470b-9de1-5eaa329496e3.jpg" alt="Dani memory 5" />
+                            <img src="images/friends/Dani/457290716_411242144932036_3860025840108404774_n.jpg" alt="Dani memory 6" />
+                            <img src="images/friends/Dani/457431152_1752707132223637_4880260316615445546_n.jpg" alt="Dani memory 7" />
+                            <img src="images/friends/Dani/457544157_1050189206812961_3558181507579561612_n.jpg" alt="Dani memory 8" />
+                            <img src="images/friends/Dani/457576325_391185317119248_3929951134210693467_n.jpg" alt="Dani memory 9" />
+                            <img src="images/friends/Dani/457590657_874457390871277_1630569993409494805_n.jpg" alt="Dani memory 10" />
+                            <img src="images/friends/Dani/458919704_913118727621600_6110011426461563493_n.jpg" alt="Dani memory 11" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Jamila</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Jamila/797810979_2291302571707450_7004271392661009614_n.jpg" alt="Jamila memory 1" />
+                            <img src="images/friends/Jamila/800435967_1114052164510419_2316359113698001501_n.jpg" alt="Jamila memory 2" />
+                            <img src="images/friends/Jamila/800964570_1741279897129590_7118804486168247914_n.jpg" alt="Jamila memory 3" />
+                            <img src="images/friends/Jamila/456439167_1154153558986052_1226198198466465073_n.jpg" alt="Jamila memory 4" />
+                            <img src="images/friends/Jamila/456990694_1039561454498895_216978710841247647_n.jpg" alt="Jamila memory 5" />
+                            <img src="images/friends/Jamila/457503876_1884039938767040_8938880291830067905_n (1).jpg" alt="Jamila memory 6" />
+                            <img src="images/friends/Jamila/457503876_1884039938767040_8938880291830067905_n.jpg" alt="Jamila memory 7" />
+                            <img src="images/friends/Jamila/458505266_889683533041935_3915607586191177941_n.jpg" alt="Jamila memory 8" />
+                            <img src="images/friends/Jamila/Screenshot 2026-09-09 215646.png" alt="Jamila memory 9" />
+                            <img src="images/friends/Jamila/Screenshot 2026-09-09 215707.png" alt="Jamila memory 10" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Lois</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Lois/794902567_38255268497453370_7127617703704598772_n.jpg" alt="Lois memory 1" />
+                            <img src="images/friends/Lois/796249651_1625800518917574_5218246873634423694_n.png" alt="Lois memory 2" />
+                            <img src="images/friends/Lois/796249780_1765249144811328_5765573095490046878_n.jpg" alt="Lois memory 3" />
+                            <img src="images/friends/Lois/797752911_2117617028829866_6476802293678766833_n.jpg" alt="Lois memory 4" />
+                            <img src="images/friends/Lois/797856771_1738332420789712_3810136698092259963_n.jpg" alt="Lois memory 6" />
+                            <img src="images/friends/Lois/798214391_1572548797669531_707125827430717308_n.png" alt="Lois memory 7" />
+                            <img src="images/friends/Lois/798586681_1091413150487705_1231367631189624074_n.jpg" alt="Lois memory 8" />
+                            <img src="images/friends/Lois/798586759_2364473167629490_5203277024304106589_n.png" alt="Lois memory 9" />
+                            <img src="images/friends/Lois/799767369_1886550988989972_3759389528088141692_n.png" alt="Lois memory 10" />
+                            <img src="images/friends/Lois/799838656_2311050612963730_1926356477422287637_n.jpg" alt="Lois memory 11" />
+                            <img src="images/friends/Lois/800512144_1768824380927372_6006009004869115934_n.png" alt="Lois memory 13" />
+                            <img src="images/friends/Lois/801127660_1619126833168987_8504242727764786848_n.png" alt="Lois memory 12" />
+                            <img src="images/friends/Lois/456278707_426307599941974_5904553532205409216_n.jpg" alt="Lois memory 13" />
+                            <img src="images/friends/Lois/457020526_936824728253942_6261717542978026559_n.jpg" alt="Lois memory 14" />
+                            <img src="images/friends/Lois/796633219_2015700072483389_284724546137816347_n.jpg" alt="Lois memory 15" />
+                            <img src="images/friends/Lois/797141519_1686608275734747_1216341027432171149_n.png" alt="Lois memory 16" />
+                            <img src="images/friends/Lois/800512144_1768824380927372_6006009004869115934_n (1).png" alt="Lois memory 17" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Anizza</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Anizza/31001358-592c-4c32-8304-2a74d172d3ea.jpg" alt="Anizza memory 1" />
+                            <img src="images/friends/Anizza/6f5bac5b-2392-4eef-a586-56745a1f0adc.jpg" alt="Anizza memory 2" />
+                            <img src="images/friends/Anizza/e3ea44a6-1d16-464f-81cd-6ca017153330.jpg" alt="Anizza memory 3" />
+                            <img src="images/friends/Anizza/464e6620-5096-4c96-b208-ade82723c3fd.jpg" alt="Anizza memory 4" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Rhianne</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Rhianne/2d5dca8f-a48e-43d2-9c9d-32dc385ba4f4.jpg" alt="Rhianne memory 1" />
+                            <img src="images/friends/Rhianne/5956fd13-013d-4403-8bcd-0db8102da1d4.jpg" alt="Rhianne memory 2" />
+                            <img src="images/friends/Rhianne/02bab47f-ee7c-4666-9ed2-bff34ec130df.jpg" alt="Rhianne memory 3" />
+                            <img src="images/friends/Rhianne/068e9403-10fd-44a0-95fc-c27c4b3b19ae.jpg" alt="Rhianne memory 4" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>erian</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/erian/457056782_932074872051350_6402741236322059964_n.jpg" alt="erian memory 1" />
+                            <img src="images/friends/erian/457159111_1523506444924926_6807295112556805003_n.jpg" alt="erian memory 2" />
+                            <img src="images/friends/erian/457191158_517140131069056_289199420441458144_n.jpg" alt="erian memory 3" />
+                            <img src="images/friends/erian/457420387_1660808084652120_5971127631957396584_n.jpg" alt="erian memory 4" />
+                            <img src="images/friends/erian/457449562_1035687647831116_1425255708650163021_n.jpg" alt="erian memory 5" />
+                            <img src="images/friends/erian/457605047_1900353250432707_8499843986420544780_n.jpg" alt="erian memory 6" />
+                            <img src="images/friends/erian/458720767_1560866707840284_3693156408504038273_n.jpg" alt="erian memory 7" />
+                            <img src="images/friends/erian/458775281_1051060509926089_209610121943466616_n.jpg" alt="erian memory 8" />
+                            <img src="images/friends/erian/458923161_3643167369331686_1808144371311488301_n.jpg" alt="erian memory 9" />
+                            <img src="images/friends/erian/459060909_887313983462600_8097406230533512400_n.jpg" alt="erian memory 10" />
+                            <img src="images/friends/erian/Screenshot 2026-09-09 215744.png" alt="erian memory 11" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Josh</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Josh/457020526_1044221240120752_7030481394654225607_n.jpg" alt="Josh memory 1" />
+                            <img src="images/friends/Josh/457038535_3688323804762894_3287619857817853615_n.jpg" alt="Josh memory 2" />
+                            <img src="images/friends/Josh/457056785_1187264929219397_3973704771681776338_n.jpg" alt="Josh memory 3" />
+                            <img src="images/friends/Josh/457605045_589555043399894_6689619423041670071_n.jpg" alt="Josh memory 4" />
+                            <img src="images/friends/Josh/457740519_477900478558783_2183005975971896508_n.jpg" alt="Josh memory 5" />
+                            <img src="images/friends/Josh/458240155_1533351130653619_1812223759959074699_n.jpg" alt="Josh memory 6" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>VJ</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/VJ/456958931_1221343415583457_1145934373684128285_n.jpg" alt="VJ memory 1" />
+                            <img src="images/friends/VJ/457003904_916241110331283_3186187450132565177_n.jpg" alt="VJ memory 2" />
+                            <img src="images/friends/VJ/457207424_876296777274264_5544599006286007282_n.jpg" alt="VJ memory 3" />
+                            <img src="images/friends/VJ/457364135_1246489896553708_6449347773771791375_n.jpg" alt="VJ memory 4" />
+                            <img src="images/friends/VJ/457373791_360670153662985_5401799901870659280_n.jpg" alt="VJ memory 5" />
+                            <img src="images/friends/VJ/457478686_1054054459498844_3674090928028779082_n.jpg" alt="VJ memory 6" />
+                            <img src="images/friends/VJ/458204795_1056518402506855_5059153272678844288_n.jpg" alt="VJ memory 7" />
+                            <img src="images/friends/VJ/458383229_8134371540023860_5237054975578937957_n.jpg" alt="VJ memory 8" />
+                        </div>
+                    </div>
+
+                    <div class="friend-gallery-section">
+                        <h3>Lee</h3>
+                        <div class="friend-gallery-grid">
+                            <img src="images/friends/Lee/12e187ab-c644-4ec6-bc98-e0ee18305f54.jpg" alt="Lee memory 1" />
+                            <img src="images/friends/Lee/7c7f9ef1-31c7-4c6d-af10-4d3702aa3865.jpg" alt="Lee memory 2" />
+                            <img src="images/friends/Lee/ac86ba38-c479-457d-8e37-bcf4b9535af8.jpg" alt="Lee memory 3" />
+                            <img src="images/friends/Lee/b9c2c8ad-3351-477a-84f4-28dbc3a7e4cf.jpg" alt="Lee memory 4" />
+                        </div>
+                    </div>
+                </div>
+
+                <p class="final-line">To the friends who make every day feel like a celebration — thank you for always being here. 💛</p>
+                <button class="back-button" onclick="showWelcome()">Back to the card ↩</button>
+            </section>
+        </main>
+        <div id="friend-lightbox" class="friend-lightbox hidden" role="dialog" aria-modal="true" aria-label="Enlarged friend photo">
+            <button id="friend-lightbox-close" class="lightbox-close" type="button" aria-label="Close photo">×</button>
+            <button id="friend-lightbox-previous" class="lightbox-arrow" type="button" aria-label="Previous photo">‹</button>
+            <div class="lightbox-content">
+                <img id="friend-lightbox-image" src="" alt="" />
+                <div id="friend-lightbox-person" class="lightbox-person"></div>
+                <p id="friend-lightbox-counter" class="slide-counter"></p>
+            </div>
+            <button id="friend-lightbox-next" class="lightbox-arrow" type="button" aria-label="Next photo">›</button>
+        </div>
+    </div>
+    <script src="js/script.js?v=20260909b"></script>
+</body>
+</html>
